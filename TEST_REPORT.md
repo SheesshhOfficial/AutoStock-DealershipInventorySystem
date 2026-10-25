@@ -11,7 +11,10 @@ Run locally on 25 October 2026 (IST).
 | Frontend Vitest suite | 3 tests passed |
 | Backend Python syntax compilation | Passed |
 | Backend pytest suite | Not run: the existing `.venv` points to an inaccessible Python executable; the available Python has no FastAPI installation, and package network access is blocked |
+| Vercel configuration | JSON parsed and routes inspected locally; Vercel CLI build and live deployment not run because the CLI, hosted database and project credentials are not available here |
 
 The frontend tests cover clearing an applied search, hiding old results after a failed search, and disabling purchase at zero stock after a successful stock update. The new backend tests cover authentication, customer/admin permissions, searching, stock changes, conflicts, deletion, and input validation. Passing backend test results must be added after running `pytest` in a working environment.
 
 These tests were added during a review of existing code. They are not evidence that the original implementation followed red–green–refactor development.
+
+After the Vercel changes, the frontend build and all 3 frontend tests passed again. Python source compilation passed; hosted PostgreSQL behavior remains unverified until the backend tests and a preview deployment run with a working database.

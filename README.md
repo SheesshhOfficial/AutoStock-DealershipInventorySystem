@@ -14,7 +14,7 @@ A purchase is an inventory operation: it reduces stock by one. **No payment is c
 - Search by make, model, category and minimum/maximum price.
 - Purchase one unit, with unavailable vehicles shown as out of stock.
 - Administrator-only vehicle creation, editing, deletion and restocking.
-- Persistent SQLite storage and explicit administrator setup.
+- Persistent SQLite storage locally, hosted PostgreSQL on Vercel, and explicit administrator setup.
 - Responsive React interface with validation, loading states and action feedback.
 
 ## Screenshots
@@ -40,7 +40,7 @@ Screenshots show the application running locally. Stock counts vary as vehicles 
 | Frontend | React, TypeScript, Vite | Single-page interface and API integration |
 | Styling | Tailwind CSS and CSS | Layout, responsive styling and reusable visual patterns |
 | Backend | Python, FastAPI | REST API, validation and access control |
-| Database | SQLite with SQLAlchemy | Persistent users and inventory |
+| Database | SQLite locally or PostgreSQL on Vercel, with SQLAlchemy | Persistent users and inventory |
 | Authentication | PyJWT and Argon2 through pwdlib | Access tokens and password hashing |
 
 The application does not call an AI service at runtime.
@@ -129,6 +129,18 @@ npm.cmd run dev
 Open **http://127.0.0.1:5173** and sign in with the administrator credentials created above. Use the registration screen to create a separate customer account.
 
 Both servers must remain running. To stop the application, press `Ctrl+C` in both terminal windows.
+
+## Deploy on Vercel
+
+The root [vercel.json](vercel.json) defines a Vite frontend service and a FastAPI backend service on one Vercel project. Browser requests to `/api/*` reach FastAPI on the same domain; the frontend needs no public API URL. This uses Vercel Services, so deploy from the **repository root**, with a current Vercel CLI and Services available for your account.
+
+1. Create a hosted PostgreSQL database (for example, through a Vercel Marketplace provider). **Do not use the local SQLite URL:** Vercel functions cannot persist a shared SQLite file. Existing local SQLite accounts and vehicles are not automatically migrated.
+2. Import this Git repository into Vercel, leaving the project's **Root Directory at the repository root**. Set the project Framework Preset to **Services** in Build and Deployment settings. The `vercel.json` file builds both services. Python 3.12 is selected in `backend/.python-version`.
+3. In Vercel Project Settings → Environment Variables, set `DATABASE_URL` to the provider's PostgreSQL connection URL and `JWT_SECRET` to a new random secret of at least 32 characters. Set these for every environment you intend to deploy. Keep both values private and redeploy after changing them. A `postgres://` or `postgresql://` URL is accepted; the backend uses the psycopg driver.
+4. Deploy and visit `/api/health` on the deployment URL. The frontend is at `/`. The backend creates the database tables on startup.
+5. Create the first administrator from a trusted local machine with backend dependencies installed. Temporarily set `DATABASE_URL` to that hosted database and `JWT_SECRET` to the deployment secret in your local environment, then from `backend/` run `python -m app.seed --admin-email your-email@example.com`. Enter the password interactively. This adds sample vehicles only if inventory is empty. Clear the temporary environment values afterward.
+
+Customer registration creates customer accounts only. The database provider may require SSL or a pooled connection URL; use the connection string it gives for application traffic. Preview and production deployments should use separate databases and JWT secrets if their data must stay separate. No payment processing is provided.
 
 ## Using the application
 
@@ -240,4 +252,4 @@ The root [PROMPTS.md](PROMPTS.md) records the exact README prompt supplied by th
 
 ## Scope and limitations
 
-This is a local assessment application, not a production dealership/payment platform. It does not provide payment processing, order fulfilment, password recovery, public hosting or production infrastructure. A deployment would require additional operational/security hardening.
+This is an assessment application, not a production dealership/payment platform. It does not provide payment processing, order fulfilment or password recovery. A public deployment requires additional operational and security hardening.

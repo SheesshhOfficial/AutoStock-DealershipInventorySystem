@@ -4,7 +4,7 @@ The project author said they built the original application themselves and only 
 
 ## Original README request to ChatGPT
 
-> make me a perfect readme file for this project  
+> make me a perfect readme file for this project
 
 ## Review and repair conversation
 
@@ -16,3 +16,4 @@ The project author said they built the original application themselves and only 
 
 > fix all
 
+> now make it vercel deployable

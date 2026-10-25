@@ -5,6 +5,8 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 
 from app.main import create_app
+from app.config import Settings
+from app.database import make_database
 from app.models import User
 from app.security import hash_password
 
@@ -84,3 +86,17 @@ def test_inventory_input_validation(api):
     assert client.post(f"/api/vehicles/{vehicle_id}/restock", headers=headers, json={"quantity": 0}).status_code == 422
     with app.state.session_factory() as session:
         assert session.scalar(select(User).where(User.email == "admin@example.com")).role == "admin"
+
+
+def test_vercel_requires_persistent_database(monkeypatch):
+    monkeypatch.setenv("VERCEL", "1")
+    with pytest.raises(ValueError, match="hosted PostgreSQL"):
+        Settings(database_url="sqlite:///./inventory.db", jwt_secret="test-only-secret-with-at-least-32-characters")
+
+
+def test_provider_postgres_url_selects_psycopg_driver():
+    engine, _ = make_database("postgres://user:password@localhost/inventory")
+    try:
+        assert engine.url.drivername == "postgresql+psycopg"
+    finally:
+        engine.dispose()

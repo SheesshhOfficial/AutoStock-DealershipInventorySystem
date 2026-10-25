@@ -1,4 +1,6 @@
-from pydantic import Field, field_validator
+import os
+
+from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -15,3 +17,9 @@ class Settings(BaseSettings):
         if value.startswith("replace-this"):
             raise ValueError("Generate a random JWT_SECRET before starting the API")
         return value
+
+    @model_validator(mode="after")
+    def require_persistent_vercel_database(self):
+        if os.getenv("VERCEL") and self.database_url.startswith("sqlite"):
+            raise ValueError("Set DATABASE_URL to a hosted PostgreSQL database on Vercel; SQLite is not persistent there")
+        return self
