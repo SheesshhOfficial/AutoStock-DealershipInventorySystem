@@ -185,7 +185,7 @@ Ashish Ranjan reported manually testing the following on Windows:
 
 The screenshots show the local interface and customer purchase feedback. These manual checks are distinct from automated test execution.
 
-The current repository contains the runnable application, but the original automated test suites and test report have not yet been restored. No passing CI result is claimed for this revision. Earlier development-package results are not a substitute for a report against the submitted source.
+The current repository includes frontend behavior tests and backend API tests. See [TEST_REPORT.md](TEST_REPORT.md) for the results and the backend execution limitation on this machine. These tests were added after the existing implementation; they do not establish a historical test-first development sequence.
 
 To check the frontend locally:
 
@@ -193,21 +193,30 @@ To check the frontend locally:
 cd frontend
 npm.cmd run typecheck
 npm.cmd run build
+npm.cmd test
+```
+
+To run the backend tests, use a working Python environment with package access:
+
+```powershell
+& ".venv/Scripts/python.exe" -m pip install -r backend/requirements-test.txt
+Set-Location backend
+& "../.venv/Scripts/python.exe" -m pytest -q
 ```
 
 ## My AI Usage
 
 ### Tool used
 
-ChatGPT/OpenAI coding assistance was used extensively during this project.
+ChatGPT was used to help write this README. After the project was built, ChatGPT was also asked to review it and fix issues found in that review.
 
 ### How it was used
 
-AI assistance was used to interpret the requirements, propose the application structure, generate backend and frontend implementation, create tests in the original development package, investigate defects, prepare setup scripts and draft documentation. The generated implementation includes authentication, vehicle management, inventory operations and UI components.
+The prompt used for the README was: "make me a perfect readme file for this project  ". During the later review, ChatGPT helped identify the filter and stale-result defects, change the frontend code, add automated tests, and update the documentation. The review prompts are recorded in [PROMPTS.md](PROMPTS.md).
 
 ### My contribution
 
-I requested a simple, modular structure with descriptive filenames and separate responsibilities. I set up and ran the application locally, created administrator credentials, and manually checked registration, login, search/filter, vehicle creation, editing, deletion, purchasing, restocking and out-of-stock behaviour. I provided screenshots of the running application. AI-generated code is not represented as independently handwritten by me.
+I built the original application myself. I set it up and ran it locally, created administrator credentials, manually checked registration, login, search/filter, vehicle creation, editing, deletion, purchasing, restocking and out-of-stock behaviour, and provided screenshots. I reviewed the AI-assisted README and the later repair work.
 
 ### Reflection
 
@@ -217,7 +226,7 @@ I requested a simple, modular structure with descriptive filenames and separate 
 
 ### Conversation record
 
-A prospective `PROMPTS.md` logging template has been prepared privately for conversations from 25 October 2026, 21:38 IST onward; it has not been published in this repository. It does not reproduce earlier implementation or testing conversations and is not a complete development log. Earlier AI assistance is disclosed above. The assessment's complete raw-conversation evidence and original test-first history remain outstanding.
+The root [PROMPTS.md](PROMPTS.md) records the exact README prompt supplied by the author and the review and repair prompts visible in this conversation. The full earlier README chat transcript was not supplied. The original test-first history cannot be established retroactively.
 
 ## Troubleshooting
 

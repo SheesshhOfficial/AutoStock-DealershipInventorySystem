@@ -124,6 +124,12 @@ export function InventoryWorkspace({
           <InventoryFilters
             filters={filters}
             onChange={setFilters}
+            onClear={() => {
+              const cleared = { make: "", model: "", category: "", min_price: "", max_price: "" };
+              setFilters(cleared);
+              appliedFilters.current = cleared;
+              void load(cleared);
+            }}
             busy={loading || busy}
             onSearch={() => {
               appliedFilters.current = { ...filters };

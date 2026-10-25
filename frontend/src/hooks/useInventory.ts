@@ -45,10 +45,12 @@ export function useInventory(token: string) {
           !controller.signal.aborted &&
           alive.current &&
           serial === latestRequest.current
-        )
+        ) {
+          setVehicles([]);
           setError(
             err instanceof Error ? err.message : "Unable to load inventory.",
           );
+        }
       } finally {
         if (alive.current && serial === latestRequest.current)
           setLoading(false);

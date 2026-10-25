@@ -11,11 +11,13 @@ export function InventoryFilters({
   filters,
   onChange,
   onSearch,
+  onClear,
   busy,
 }: {
   filters: Filters;
   onChange: (filters: Filters) => void;
   onSearch: () => void;
+  onClear: () => void;
   busy: boolean;
 }) {
   function submit(event: FormEvent) {
@@ -29,7 +31,7 @@ export function InventoryFilters({
         <button
           className="text-button"
           type="button"
-          onClick={() => onChange({ ...emptyFilters })}
+          onClick={onClear}
         >
           Clear filters
         </button>
