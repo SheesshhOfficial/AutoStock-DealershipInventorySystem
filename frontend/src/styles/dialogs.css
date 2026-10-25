@@ -1,0 +1,33 @@
+.vehicle-dialog {
+  border: 1px solid #e3e7ef;
+  border-radius: 14px;
+  padding: 27px;
+  width: min(440px, calc(100% - 32px));
+  max-height: 90vh;
+  box-shadow: 0 25px 100px #13192b33;
+}
+.vehicle-dialog::backdrop {
+  background: #171e39a6;
+  backdrop-filter: blur(3px);
+}
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+.dialog-heading h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+}
+.close-button {
+  font-size: 25px;
+  color: #8b93a3;
+}
+.dialog-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 26px;
+}

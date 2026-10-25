@@ -1,0 +1,159 @@
+.vehicle-card {
+  border: 1px solid #e3e7ee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  transition: box-shadow 0.2s;
+}
+.vehicle-card:hover {
+  box-shadow: 0 7px 22px #20284209;
+}
+.vehicle-art {
+  position: relative;
+  background: linear-gradient(140deg, #f1f3f4, #e9eef0);
+  padding: 28px 12px 16px;
+  min-height: 171px;
+  display: flex;
+  align-items: center;
+}
+.category-tag {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  background: #ffffffb8;
+  border: 1px solid #ffffffb8;
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 9px;
+  color: #78818c;
+}
+.stock-dot {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  height: 6px;
+  width: 6px;
+  background: #56a88b;
+  border-radius: 50%;
+}
+.stock-dot.empty {
+  background: #a2a6ae;
+}
+.car-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.art-label {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-size: 6px;
+  letter-spacing: 1px;
+  color: #99a2a8;
+}
+.vehicle-body {
+  padding: 18px;
+}
+.make-label {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #8d94a2;
+  margin-bottom: 5px;
+}
+.vehicle-body h3 {
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.vehicle-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 17px 0;
+  gap: 8px;
+}
+.vehicle-meta strong {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+.stock-label {
+  font-size: 9px;
+  color: #4d9477;
+  white-space: nowrap;
+}
+.vehicle-meta > .muted {
+  font-size: 9px;
+}
+.purchase {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e5e4f5;
+  background: #f5f4ff;
+  color: #625dd6;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.purchase:hover:not(:disabled) {
+  background: #eceaff;
+}
+.purchase:disabled {
+  color: #8f95a1;
+  background: #f4f5f7;
+  border-color: #e9ebee;
+}
+.purchase > span {
+  font-size: 16px;
+  line-height: 1;
+}
+.admin-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 13px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f1f5;
+  font-size: 10px;
+  color: #747b8c;
+}
+.danger-text {
+  color: #b7666a;
+}
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e5e8ee;
+  padding: 24px 0;
+  margin-top: 37px;
+  font-size: 9px;
+  color: #9da4b1;
+  gap: 16px;
+}
+.empty-state {
+  text-align: center;
+  background: white;
+  border: 1px dashed #d8dce5;
+  border-radius: 10px;
+  padding: 65px 20px;
+  color: #8a91a0;
+  font-size: 13px;
+}
+.empty-state > span {
+  font-size: 40px;
+  color: #7772dc;
+}
+.empty-state h3 {
+  font-size: 20px;
+  color: #41495d;
+  margin: 12px 0;
+}
+.empty-state p {
+  font-size: 12px;
+}

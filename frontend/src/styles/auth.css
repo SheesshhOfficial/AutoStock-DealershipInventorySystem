@@ -1,0 +1,70 @@
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+}
+.auth-story {
+  background: #1a1e2b;
+  padding: 42px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  overflow: hidden;
+}
+.auth-story > div {
+  margin-top: 75px;
+}
+.auth-story h1 {
+  font-size: 45px;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  font-weight: 600;
+  margin: 22px 0;
+}
+.auth-story p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #979eae;
+  max-width: 330px;
+}
+.auth-story .car-illustration {
+  margin: 30px 0 40px;
+  transform: scale(1.12);
+}
+.auth-story > small {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #7b8499;
+}
+.auth-form-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+.auth-form {
+  width: 100%;
+  max-width: 350px;
+}
+.auth-form h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+  font-weight: 600;
+  margin: 12px 0;
+}
+.auth-footnote {
+  font-size: 10px;
+  color: #a0a6b3;
+  margin-top: 60px;
+}
+.loading-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #747b8c;
+  font-size: 14px;
+}

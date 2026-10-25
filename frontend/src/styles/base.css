@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #242b3b;
+  background: #f6f7f9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  box-sizing: border-box;
+}
+button,
+a,
+input {
+  touch-action: manipulation;
+}
+button {
+  transition:
+    background 0.15s,
+    color 0.15s,
+    box-shadow 0.15s;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 4px;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #586176;
+}
+input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid #dfe3eb;
+  border-radius: 7px;
+  background: white;
+  padding: 11px 12px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #242b3b;
+  outline: none;
+}
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px #6366f112;
+}
+input::placeholder {
+  color: #a0a6b3;
+}
+.primary,
+.secondary,
+.danger {
+  border-radius: 7px;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.primary {
+  background: #5854dc;
+  color: white;
+  box-shadow: 0 3px 6px #5854dc17;
+}
+.primary:hover:not(:disabled) {
+  background: #4844bd;
+}
+.secondary {
+  border: 1px solid #dfe3eb;
+  background: white;
+}
+.danger {
+  background: #b83242;
+  color: white;
+}
+.text-button {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5854dc;
+}
+.muted {
+  color: #7a8292;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.error,
+.success {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.error {
+  background: #fff0ef;
+  color: #ab293a;
+  border: 1px solid #f1cece;
+}
+.success {
+  background: #edf8f2;
+  color: #287554;
+  border: 1px solid #cde8d9;
+}
+.brand {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: #a5a2ff;
+  line-height: 1;
+}
+.brand > span {
+  font-size: 23px;
+  letter-spacing: -0.8px;
+  color: white;
+}
+.brand-dot {
+  color: #9691ff;
+}
+.eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: #969ca9;
+}

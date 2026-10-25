@@ -1,0 +1,171 @@
+@media (min-width: 1550px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1180px) {
+  .sidebar {
+    width: 190px;
+    padding: 30px 17px;
+  }
+  .main-shell {
+    margin-left: 190px;
+  }
+  .dashboard {
+    padding: 30px 25px 0;
+  }
+  .topbar {
+    padding: 0 25px;
+  }
+  .vehicle-grid {
+    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .filter-fields {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stats small {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .sidebar {
+    position: static;
+    width: auto;
+    padding: 19px 22px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sidebar .brand > span {
+    font-size: 21px;
+  }
+  .nav-label,
+  .nav-item,
+  .sidebar-note,
+  .sidebar-bottom {
+    display: none;
+  }
+  .workspace {
+    display: block;
+  }
+  .main-shell {
+    margin-left: 0;
+  }
+  .topbar {
+    height: 58px;
+    padding: 0 20px;
+  }
+  .topbar p {
+    font-size: 10px;
+  }
+  .role-badge {
+    display: none;
+  }
+  .dashboard {
+    padding: 25px 18px 0;
+  }
+  .page-heading {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .page-heading h1 {
+    font-size: 26px;
+  }
+  .page-heading .eyebrow {
+    font-size: 7px;
+  }
+  .page-heading > .primary {
+    padding: 10px;
+    font-size: 11px;
+    margin-top: 22px;
+  }
+  .page-heading .muted {
+    font-size: 11px;
+  }
+  .stats {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .stats > div {
+    padding: 13px 10px;
+  }
+  .stats > div > span {
+    font-size: 9px;
+  }
+  .stats strong {
+    font-size: 23px;
+  }
+  .filters {
+    padding: 15px;
+    margin-bottom: 23px;
+  }
+  .filter-fields {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .results-heading p {
+    font-size: 8px;
+  }
+  .vehicle-grid {
+    gap: 13px;
+  }
+  .vehicle-body {
+    padding: 14px;
+  }
+  .vehicle-meta {
+    display: block;
+  }
+  .stock-label,
+  .vehicle-meta > .muted {
+    display: block;
+    margin-top: 6px;
+  }
+  .vehicle-art {
+    min-height: 130px;
+    padding: 30px 6px 15px;
+  }
+  .vehicle-body h3 {
+    font-size: 17px;
+  }
+  .vehicle-meta strong {
+    font-size: 14px;
+  }
+  .purchase {
+    font-size: 10px;
+    padding: 9px;
+  }
+  .dashboard-footer {
+    font-size: 8px;
+  }
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+  .auth-story {
+    padding: 25px;
+  }
+  .auth-story > div,
+  .auth-story > small {
+    display: none;
+  }
+  .auth-form-wrap {
+    padding: 50px 25px;
+  }
+  .auth-form h2 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 390px) {
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-heading {
+    display: block;
+  }
+  .page-heading > .primary {
+    margin-top: 15px;
+  }
+  .vehicle-art {
+    min-height: 160px;
+  }
+}
